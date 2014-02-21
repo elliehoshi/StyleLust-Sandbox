@@ -6,7 +6,7 @@ class TestController < ApplicationController
 	require 'json'
 
 	def index
-
+		# check categories to see if they exist
 		if Category.all.length == 0
 			Category.create(name: "Tops")
 			Category.create(name: "Bottoms")
@@ -16,25 +16,35 @@ class TestController < ApplicationController
 			Category.create(name: "Outerwear")
 		end
 		
+		# set initial variables
 		@count = 0
 		categories = ["womens-tops", "skirts", "womens-pants", "shorts", "womens-shoes", "dresses", "womens-accessories", "womens-outerwear"]
 		@category = Category.all
-		until @count > 7
+
+		# make call requests until you have gone through all the categories
+		until @count > categories.length
+			# set initial variables for the api calls
 			offset = 0
 			c = categories[@count]
+
+			# get upto 500 items per category
 			until offset >= 500
 
-
+				# api call
 				url = "http://api.shopstyle.com/api/v2/products?pid=uid404-24629898-59&format=JSON&offset=#{offset}&limit=100&cat=#{c}"
 				uri = URI.parse(url)
 				response = Net::HTTP.get_response(uri)
 				value = JSON.parse(response.body)
 				value["products"].each do |product|
-				# search for the item that matches the product name
+
+
+				# select a matching item from the database
 				@item = Item.where(name: product["name"])
 				# simplifies the call for me
 				@item = @item[0]	
 				
+
+
 				# check to see if the item exists and if it does that it matches the product name
 					if @item != nil && @item.name == product["name"]
 						# update the item
@@ -45,11 +55,15 @@ class TestController < ApplicationController
 						# set the new item to @item
 						@item = Item.last
 
+
+
 						# now that we have a new item, add it to a category
 						case @count
-						when 0
-							@category.all[0].items << @item
-						when 1,2,3
+						when 0 # category is womens-tops from shopstyle
+							#add that item into our Tops Category
+							@category.all[0].items << @item 
+						when 1,2,3 # categories are skirts, womens-pants, shorts from shopstyle
+							#add that item into our Bottoms Category
 							@category.all[1].items << @item
 						when 4
 							@category.all[2].items << @item
@@ -62,25 +76,39 @@ class TestController < ApplicationController
 						end
 					end
 
+
+					# do our brand check
 					if product["brand"] != nil 
+
+
+						# select a matching brand in the database
 						@brand = Brand.where(name: product["brand"]["name"])
+						# make brand easier for me to read
 						@brand = @brand[0]
+
+						# see if the brand already exists in the database
 					 	if @brand != nil && @brand.name == product["brand"]["name"]
+					 		# add item to the brand
 					 			@brand.items << @item
 					 	else
+					 		# if no brand exists, create one
 							Brand.create(name: product["brand"]["name"], items: [@item])
 						end
 					end
 
 				end
+				# increase offset for the api call
 				offset += 100
-			end
+			end #end of offset until loop
+			# increase the count so we can move to the next category
 			@count += 1
-		end
-			@brands = Brand.all
-			@items = Item.all
-			@categorys = Category.all
-			render test_path
+		end #end of api call until loop
+
+		# set pass-through variables for the view
+		@brands = Brand.all
+		@items = Item.all
+		@categorys = Category.all
+		render test_path
 			
 
 			
