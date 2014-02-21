@@ -1,0 +1,24 @@
+
+<h2>Test Index</h2>
+Categories
+<ol>
+	<% @categorys.each do |c| %>
+		<li>Category Name: <%=c.name%>,  Number of Items:<%=c.items.length%></li>	
+	<%end%>
+</ol>
+Brands
+<ol>
+	<% @brands.each do |b| %>
+		<li>Brand Name: <%=b.name%>,  Number of Items:<%=b.items.length%></li>
+	<%end%>
+</ol>	
+Items
+<ol>
+	<% @items.each do |i| %>
+		<li>Item Name: <%=i.name%> <%=i.price%></li>	
+	<%end%>
+</ol>
+
+<%= @r %><br />
+<%= @off %><br />
+<%= @categorys.length %><br />
