@@ -10,6 +10,8 @@
 </head>
 <body>
 
+<%= yield %>
+
 <% if notice %>
   <p class="alert alert-notice"><%= notice %></p>
 <% end %>
@@ -31,8 +33,6 @@
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 </p>
-
-<%= yield %>
 
 </body>
 </html>
