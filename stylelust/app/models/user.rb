@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :likes
-	has_many :items, through: :likes, class_name: “Item”
-	has_many :brands, through: :items, class_name: “Brand”
-	has_many :categorys, through: :items, class_name: “Category”
+	has_many :items, through: :likes, class_name: 'Item'
+	has_many :brands, through: :items, class_name: 'Brand'
+	has_many :categorys, through: :items, class_name: 'Category'
 end
