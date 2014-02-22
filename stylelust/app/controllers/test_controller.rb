@@ -6,6 +6,13 @@ class TestController < ApplicationController
 	require 'json'
 
 	def index
+		@brands = Brand.all
+		@items = Item.all
+		@categorys = Category.all
+	end
+
+
+	def updater
 		# check categories to see if they exist
 		if Category.all.length == 0
 			Category.create(name: "Tops")
@@ -22,7 +29,7 @@ class TestController < ApplicationController
 		@category = Category.all
 
 		# make call requests until you have gone through all the categories
-		until @count > categories.length
+		until @count > 7
 			# set initial variables for the api calls
 			offset = 0
 			c = categories[@count]
@@ -35,6 +42,8 @@ class TestController < ApplicationController
 				uri = URI.parse(url)
 				response = Net::HTTP.get_response(uri)
 				value = JSON.parse(response.body)
+
+				# run through each item
 				value["products"].each do |product|
 
 
@@ -64,14 +73,18 @@ class TestController < ApplicationController
 							@category.all[0].items << @item 
 						when 1,2,3 # categories are skirts, womens-pants, shorts from shopstyle
 							#add that item into our Bottoms Category
-							@category.all[1].items << @item
-						when 4
+							@category.all[1].items << @item 
+						when 4 # category is womens-shoes from shopstyle
+							#add that item into our Shoes Category
 							@category.all[2].items << @item
-						when 5
+						when 5 # category is dresses from shopstyle
+							#add that item into our Dresses Category
 							@category.all[3].items << @item
-						when 6
+						when 6 # category is womens-accessories from shopstyle
+							#add that item into our Accessories Category
 							@category.all[4].items << @item
-						when 7
+						when 7 # category is womens-outerwear from shopstyle
+							#add that item into our Outerwear Category
 							@category.all[5].items << @item
 						end
 					end
@@ -108,7 +121,7 @@ class TestController < ApplicationController
 		@brands = Brand.all
 		@items = Item.all
 		@categorys = Category.all
-		render test_path
+		render action: "index"
 			
 
 			

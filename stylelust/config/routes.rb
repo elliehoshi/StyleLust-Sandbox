@@ -4,11 +4,12 @@ Stylelust::Application.routes.draw do
   resources :items
 
   get "/test/index" => "test#index", as: :test
+  get "/test/updater" => "test#updater", as: :updater
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'test#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
