@@ -2,7 +2,10 @@ Stylelust::Application.routes.draw do
   
   devise_for :users
 
+  get 'items/play' => 'items#play', as: :play
   resources :items
+
+
   root 'items#welcome'
   get "/test/index" => "test#index", as: :test
   get "/test/updater" => "test#updater", as: :updater
