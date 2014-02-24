@@ -26,8 +26,7 @@ padding: 10px;
 }
 
 .deckcontainer {
-	width: 1000px;
-	height: 550px;
+	width: 100%;
 	background-image: url(slidebackground.png);
 	background-repeat: no-repeat;
 	background-position: center; 
@@ -35,4 +34,5 @@ padding: 10px;
 
 #itemdeck {
 	padding: 50px;
+	padding-top: 60px;
 }
