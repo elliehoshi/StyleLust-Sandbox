@@ -3,6 +3,7 @@ Stylelust::Application.routes.draw do
   devise_for :users
 
   get 'items/play' => 'items#play', as: :play
+  get 'categorys/settings' => 'categorys#settings', as: :settings
   resources :items
 
   resources :likes
