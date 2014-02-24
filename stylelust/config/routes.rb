@@ -5,6 +5,8 @@ Stylelust::Application.routes.draw do
   get 'items/play' => 'items#play', as: :play
   resources :items
 
+  resources :likes
+
 
   root 'items#welcome'
   get "/test/index" => "test#index", as: :test
