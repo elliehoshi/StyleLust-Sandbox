@@ -24,7 +24,10 @@
     </nav>
 
     <section class="right-small">
-        <a class="right-off-canvas-toggle menu-icon" ><span></span></a>
+        <%= link_to likes_path do %>
+          <%= image_tag("user.png", class: "user right-off-canvas-toggle") %>
+        <% end %>
+        <!-- <a class="right-off-canvas-toggle menu-icon" ><span></span></a> -->
       </section>
     </nav>
 
