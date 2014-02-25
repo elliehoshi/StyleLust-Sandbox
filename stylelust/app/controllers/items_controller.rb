@@ -1,5 +1,23 @@
 class ItemsController < ApplicationController
-	def play	
+	
+	def play
+		items_params
+	end
+
+	def likeClicked
+		items_params
+		current_user.items << @items[params[:index].to_i-1]
+		current_user.update_attributes(items: current_user.items, likes: current_user.likes)
+		Like.last.update_attributes(is_liked: true)
+		render action: 'play'
+	end
+
+	def dislikeClicked
+
+		render action: 'play'
+	end
+
+	def items_params
 		if params[:cat].blank?
 			@items = Item.all
 		else
@@ -12,20 +30,14 @@ class ItemsController < ApplicationController
 				end
 			end
 		end
-
 		if params[:index].blank?
 			@index = params[:index] = 0
 		else
 			@index = params[:index].to_i 
-			if (@items.length < @index + 1)
+			if 	(@items.length < @index + 1)
 				@index -= 1
 			end
 		end
 	end
 
-	def likeClicked
-		
-
-		render action: 'play'
-	end
 end

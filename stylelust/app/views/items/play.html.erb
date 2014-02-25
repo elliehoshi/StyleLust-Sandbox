@@ -13,9 +13,9 @@
         <%= @items.all[@index].price %>
     <br><br>
  	 	<div class="large-12 small-12 columns" id="likebar">
-      <a href="#" class="button">Dislike</a>
- 			<a href="#" class="button">Buy Now</a>
- 			<%= link_to "Love", like_path(cat: params[:cat], price: params[:price], index: (@index += 1)), class: "button" %>
+ 	 		<%= link_to "Dislike", dislike_path(cat: params[:cat], price: params[:price], index: (@index += 1)), class: "button" %>
+ 	 		<%= link_to "Buy Now", url, class: "button" %>
+ 			<%= link_to "Love", item_like_path(cat: params[:cat], price: params[:price], index: (@index += 1)), class: "button", method: 'update' %>
     </div>
   </div>
 

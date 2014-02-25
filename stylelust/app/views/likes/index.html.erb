@@ -128,7 +128,16 @@
  
     <!-- End Thumbnails -->
  
- 
+ 			
+ 			<% @items.each do |item| %>
+              <div class="panel">
+                <h5><%= item.name %></h5>
+                <h6 class="subheader">$<%= item.price %></h6>
+                <%= link_to image_tag(item.image_url), item.click_url %>
+              </div>
+            </div>
+            <% end %>
+            
     <!-- Managed By -->
           <div class="row">
             <div class="large-12 columns">
