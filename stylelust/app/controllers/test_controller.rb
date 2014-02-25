@@ -57,10 +57,10 @@ class TestController < ApplicationController
 				# check to see if the item exists and if it does that it matches the product name
 					if @item != nil && @item.name == product["name"]
 						# update the item
-						@item.update_attributes(name: product["name"], price: product["price"])
+						@item.update_attributes(name: product["name"], price: product["price"], image_url: product["image"]["sizes"]["IPhone"]["url"], click_url: product["clickUrl"])
 					else
 						# if it fails it means it's a new item
-						Item.create(name: product["name"], price: product["price"])
+						Item.create(name: product["name"], price: product["price"], image_url: product["image"]["sizes"]["IPhone"]["url"], click_url: product["clickUrl"])
 						# set the new item to @item
 						@item = Item.last
 
