@@ -57,7 +57,28 @@
         <li><%= link_to settings_path do %>Settings</li>
         <% end %>
         <li><a href="#">Invite</a></li>
-        <li><a href="#" class="button">Love</a></li>
+        <li><a href="#">Love</a></li>
+        <li><label>Settings</label></li>
+        <div id="accordion2">
+        <h3>Categories</h3>
+        <div>
+          <p>
+          <%= link_to "Tops", play_path(cat: 'Tops'), class: "button", method: 'update' %>
+          </p>
+        </div>
+        <h3>Pricing</h3>
+        <div>
+          <p>
+          <%= link_to "$1000 Budget", play_path(price: 1000), class: "button", method: 'update' %>
+          </p>
+        </div>
+      </div>
+
+
+
+
+
+
       </ul>
     </aside>
 
