@@ -74,10 +74,10 @@
   <% end %>
   </div>
 
-<!-- TEST -->
+
 <div class="dropdowns">
   <select id="first_drop">
-    <%= options_for_select([['Tops', 1], ['Bottoms', 2], ['Dresses', 3], ['Outerwear', 4], ['Accessories', 5], ['Shoes', 6]], 2) %>
+    <%= options_for_select([['Tops', 1], ['Bottoms', 2], ['Dresses', 3], ['Outerwear', 4], ['Accessories', 5], ['Shoes', 6]], 1) %>
   </select>
 </div>
 
@@ -85,9 +85,19 @@
 
 <div class="dropdowns" >
   <select id="second_drop">
-    <%= options_for_select([['25', 1], ['50', 2], ['75', 3], ['100', 4], ['200', 5], ['1000', 6], ['100000', 7]], 2) %>
+    <%= options_for_select([['25', 1], ['50', 2], ['75', 3], ['100', 4], ['200', 5], ['1000', 6], ['100000', 7]], 1) %>
   </select>
 </div>
+
+<!-- slider test -->
+<p>
+  <label for="amount">Budget:</label>
+  <input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;">
+</p>
+ 
+<div id="slider"></div>
+
+<!-- end slider test -->
 
 <script>
   $(document).ready(function(){
@@ -97,10 +107,29 @@
       window.location.href = url;
     });
 
+
+    // begin slider test
+    $(function() {
+    $( "#slider" ).slider({
+      value:100,
+      min: 0,
+      max: 500,
+      step: 50,
+      slide: function( event, ui ) {
+        $( "#amount" ).val( "$" + ui.value );
+      }
+    });
+    $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
   });
+    // end slider test
+
+  });
+
+
+
 </script>
 
-<!-- END TEST -->
+
 
 
 
