@@ -4,7 +4,7 @@
  			<!-- Filters -->
       <%#= link_to "Apply", play_path(cat: params[:cat], price: params[:price]), class: "button", id: "save", method: 'update' %>
 
-      <a href="" id="save">Apply</a>
+      <a href="" class="button" id="save">Apply</a>
   </div>
 </div>
 
@@ -77,7 +77,7 @@
 <!-- TEST -->
 <div class="dropdowns">
   <select id="first_drop">
-    <%= options_for_select([['Bottoms', 1], ['size', 2], ['size', 3]], 2) %>
+    <%= options_for_select([['Tops', 1], ['Bottoms', 2], ['Dresses', 3], ['Outerwear', 4], ['Accessories', 5], ['Shoes', 6]], 2) %>
   </select>
 </div>
 
@@ -85,7 +85,7 @@
 
 <div class="dropdowns" >
   <select id="second_drop">
-    <%= options_for_select([['1000', 1], ['size', 2], ['size', 3]], 2) %>
+    <%= options_for_select([['25', 1], ['50', 2], ['75', 3], ['100', 4], ['200', 5], ['1000', 6], ['100000', 7]], 2) %>
   </select>
 </div>
 
