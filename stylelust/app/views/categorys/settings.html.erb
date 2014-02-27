@@ -110,17 +110,19 @@
 
     // begin slider test
     $(function() {
-    $( "#slider" ).slider({
-      value:100,
-      min: 0,
-      max: 500,
-      step: 50,
-      slide: function( event, ui ) {
-        $( "#amount" ).val( "$" + ui.value );
-      }
+      $( "#slider" ).slider({
+        value:100,
+        min: 0,
+        max: 500,
+        step: 5,
+        slide: function( event, ui ) {
+          $( "#amount" ).val( "$" + ui.value );
+        }
+      });
+      $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
+      // Fix this ish lates
+      console.log($( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) ));
     });
-    $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
-  });
     // end slider test
 
   });
