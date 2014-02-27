@@ -43,6 +43,7 @@ gem 'bcrypt'
 gem 'fog'
 gem 'figaro'
 gem 'pry'
+gem 'rspec-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'

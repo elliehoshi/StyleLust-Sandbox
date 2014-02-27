@@ -32,8 +32,16 @@
 
     <aside class="right-off-canvas-menu">
       <ul class="off-canvas-list">
-        <li><% if current_user %><li><a><% if !!current_user.image %><%= image_tag current_user.image, size: '30' %><% end %></a></li><li><%= link_to current_user.first_name, edit_user_path(current_user) %></a></li><li><%= link_to "LOGOUT", signout_path, id: "sign_out" %></a><% else %><a data-toggle="modal" data-target="#myModal">LOGIN</a><% end %></li>
+        <% if current_user %>
+        <li><a><% if !!current_user.image %><%= image_tag current_user.image, size: '80' %>
+          <% end %></a></li>
+        <li><%#= link_to current_user.first_name, edit_user_path(current_user) %></a></li>
+        <li><a><%= current_user.first_name %> </a></li>
+        <li><%= link_to "Logout", signout_path, id: "sign_out" %></a></li>
+        <% else %>
+        <li><a data-toggle="modal" data-target="#myModal">Login</a></li>
         <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "#sign_in" %></li>
+        <% end %>
         <li><%#= render :partial =>'loginform', :controller => 'auths', :action => 'create' %></li>
         <%#= render :partial =>'signupform', :controller => 'auths', :action => 'new' %></li>
       </ul>
@@ -52,22 +60,21 @@
         <li><%= link_to settings_path do %>Settings</li>
         <% end %>
         <li><a href="#">Invite</a></li>
-        <li><a href="#">Love</a></li>
         <li><label>Settings</label></li>
-        <div id="accordion2">
+<!--         <div id="accordion2">
         <h3>Categories</h3>
         <div>
           <p>
-          <%= link_to "Tops", play_path(cat: 'Tops'), class: "button", method: 'update' %>
+          <%#= link_to "Tops", play_path(cat: 'Tops'), class: "button", method: 'update' %>
           </p>
         </div>
         <h3>Pricing</h3>
         <div>
           <p>
-          <%= link_to "$1000 Budget", play_path(price: 1000), class: "button", method: 'update' %>
+          <%#= link_to "$1000 Budget", play_path(price: 1000), class: "button", method: 'update' %>
           </p>
-        </div>
-      </div>
+        </div> 
+      </div>-->
 
 
 

@@ -1,3 +1,41 @@
+# class ItemsController < ApplicationController
+# 	def play
+# 		items_params
+# 	end
+
+# 	def likeClicked
+# 		items_params
+# 		current_user.items << @items[params[:index].to_i] -1
+# 		current_user.update_attributes(items: current_user.items)
+# 		render play_path
+# 	end
+
+# 	def items_params
+# 		if params[:cat].blank?
+# 			@items = Item.all
+# 		else
+# 			if params[:price].blank?
+# 				@items = Category.find_by(name: params[:cat]).items
+# 			else
+# 				@items = Category.find_by(name: params[:cat]).items.where("price < ?", params[:price])
+# 			end
+# 		end
+
+# 		if params[:index].blank?
+# 			@index = 0
+# 		else
+# 			@index = params[:index].to_i
+# 		end
+# 	end
+
+
+# end
+
+
+
+
+
+
 class ItemsController < ApplicationController
 	
 	def play
@@ -5,11 +43,11 @@ class ItemsController < ApplicationController
 	end
 
 	def likeClicked
-		# items_params
-		# current_user.items << @items[params[:index].to_i-1]
-		# current_user.update_attributes(items: current_user.items, likes: current_user.likes)
-		# Like.last.update_attributes(is_liked: true)
-		# render action: 'play'
+		items_params
+		current_user.items << @items[params[:index].to_i-1]
+		current_user.update_attributes(items: current_user.items, likes: current_user.likes)
+		Like.last.update_attributes(is_liked: true)
+		render action: 'play'
 	end
 
 	def dislikeClicked

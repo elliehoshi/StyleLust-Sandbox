@@ -83,11 +83,11 @@
 
 
 
-<div class="dropdowns" >
+<!-- <div class="dropdowns" >
   <select id="second_drop">
-    <%= options_for_select([['25', 1], ['50', 2], ['75', 3], ['100', 4], ['200', 5], ['1000', 6], ['100000', 7]], 1) %>
+    <%#= options_for_select([['25', 1], ['50', 2], ['75', 3], ['100', 4], ['200', 5], ['1000', 6], ['100000', 7]], 1) %>
   </select>
-</div>
+</div> -->
 
 <!-- slider test -->
 <p>
@@ -102,29 +102,31 @@
 <script>
   $(document).ready(function(){
 
-    $('#save').on('click', function(e){
-      var url = "http://0.0.0.0:3000/items/play?cat=" + $('#first_drop option:selected').text() + "&price=" + $('#second_drop option:selected').text();
-      window.location.href = url;
-    });
-
-
-    // begin slider test
-    $(function() {
+   
       $( "#slider" ).slider({
         value:100,
-        min: 0,
+        min: 20,
         max: 500,
-        step: 5,
+        step: 20,
         slide: function( event, ui ) {
           $( "#amount" ).val( "$" + ui.value );
+          console.log(ui.value);
+          buildUrl(ui.value);
         }
       });
-      $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
-      // Fix this ish lates
-      console.log($( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) ));
-    });
-    // end slider test
 
+      $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
+
+      function buildUrl(price){
+        $('#save').on('click', function(e){
+            var url = "http://0.0.0.0:3000/items/play?cat=" + $('#first_drop option:selected').text() + "&price=" + price;
+            console.log(url);
+      window.location.href = url;
+        });
+      };
+
+// $('#second_drop option:selected').text()
+    
   });
 
 
