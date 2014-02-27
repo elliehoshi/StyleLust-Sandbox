@@ -9,6 +9,7 @@ class TestController < ApplicationController
 		@brands = Brand.all
 		@items = Item.all
 		@categorys = Category.all
+		
 	end
 
 

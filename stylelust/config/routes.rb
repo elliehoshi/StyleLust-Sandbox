@@ -1,6 +1,4 @@
 Stylelust::Application.routes.draw do
-  
-  devise_for :users
 
   get 'items/play' => 'items#play', as: :play
   # get 'items/play' => 'items#likeClicked', as: :like

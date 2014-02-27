@@ -5,11 +5,11 @@ class ItemsController < ApplicationController
 	end
 
 	def likeClicked
-		items_params
-		current_user.items << @items[params[:index].to_i-1]
-		current_user.update_attributes(items: current_user.items, likes: current_user.likes)
-		Like.last.update_attributes(is_liked: true)
-		render action: 'play'
+		# items_params
+		# current_user.items << @items[params[:index].to_i-1]
+		# current_user.update_attributes(items: current_user.items, likes: current_user.likes)
+		# Like.last.update_attributes(is_liked: true)
+		# render action: 'play'
 	end
 
 	def dislikeClicked
