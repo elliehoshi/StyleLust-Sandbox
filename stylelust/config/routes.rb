@@ -14,6 +14,13 @@ Stylelust::Application.routes.draw do
   get "/test/index" => "test#index", as: :test
   get "/test/updater" => "test#updater", as: :updater
 
+  match 'auth/:provider/callback', to: 'sessions#create', as: 'signin', via: [:get, :post]
+  match 'auth/failure', to: redirect('/'), via: [:get, :post]
+  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
+
+  resources :users
+  resources :auths, only:[:create,:new,:index]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
