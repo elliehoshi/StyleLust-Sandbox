@@ -18,3 +18,7 @@
 //= require skrollr
 //= require skrollr.menu
 //= require_tree .
+
+$(function(){$(document).foundation(); });
+
+$(function(){ $(document).foundation(); });

@@ -1,5 +1,3 @@
-$(document).foundation();
-
 $(function() {
     $( "#accordion" ).accordion();
   });

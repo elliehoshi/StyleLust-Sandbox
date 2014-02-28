@@ -42,7 +42,11 @@ gem 'omniauth-facebook'
 gem 'bcrypt'
 gem 'fog'
 gem 'figaro'
-gem 'pry'
+
+group :development, :test do
+	gem 'pry'
+	gem 'rspec-rails'
+end
 
 # Use unicorn as the app server
 # gem 'unicorn'
