@@ -1,11 +1,13 @@
-<h1>Category</h1>
+<h1><%= @items.all[@index].category.name %></h1>
  <div class="row">
  		<div class="small-12 columns deckcontainer">
 	    <div class="large-12 small-12 columns" id="itemdeck">
 	      <!-- <img src="http://placehold.it/450x450&text=[img]"> -->
-	      <% url = @items.all[@index].click_url %>
-        <% image = @items.all[@index].image_url %>
-        <%= link_to image_tag(image) , url %><br /> 
+        <div class="product">
+	        <% url = @items.all[@index].click_url %>
+          <% image = @items.all[@index].image_url %>
+          <%= link_to image_tag(image) , url %><br /> 
+        </div>
 	      <br><br>
 	    </div>
 	  </div>
