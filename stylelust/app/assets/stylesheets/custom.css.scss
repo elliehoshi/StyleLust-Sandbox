@@ -1,9 +1,9 @@
 @import "foundation";
-@import url(http://fonts.googleapis.com/css?family=Averia+Sans+Libre:300,400,700|Raleway:400,100);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,100);
 
 body {
 	text-align: center;
-	font-family: 'Averia Sans Libre', cursive;
+	font-family: 'Raleway', sans-serif;
 }
 
 div#a{
@@ -54,11 +54,11 @@ margin-bottom: 5%;
 }
 
 label {
-	font-family: 'Averia Sans Libre', cursive;
+	font-family: 'Raleway', sans-serif;
 }
 
 h1 {
-	font-family: 'Averia Sans Libre', cursive;
+	font-family: 'Raleway', sans-serif;
 }
 
 .iphone {
@@ -107,4 +107,8 @@ h1 {
 	padding-top: 3%;
 	margin-top: 5%;
 	position: relative;
+}
+
+.play {
+	margin-bottom: -3%;
 }
