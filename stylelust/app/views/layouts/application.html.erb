@@ -6,7 +6,8 @@
   <title><%= full_title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "vendor/modernizr" %>  
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "jquery" %>  
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -57,13 +58,13 @@
         <li><a href="#">About</a></li>
         <li><%= link_to play_path do %>Shop</li>
         <% end %>
-        <li><label>Settings</label></li>
         <li><%= link_to likes_path do %>Favorites</li>
         <% end %>
         <!-- <li><%#= link_to settings_path do %>Settings</li> -->
         <!-- <#% end %> -->
         <li><a href="#">Invite</a></li>
-        <li><%#= render partial: 'categorys/shopsettings' %></li>
+        <li><label>Settings</label></li>
+        <li><%= render partial: 'categorys/shopsettings' %></li>
       </ul>
     </aside>
 

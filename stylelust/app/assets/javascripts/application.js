@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require turbolinks
-//= require jquery
+// require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
 //= require foundation
