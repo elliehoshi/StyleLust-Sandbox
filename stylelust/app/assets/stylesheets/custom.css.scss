@@ -9,7 +9,6 @@ body {
 div#a{
 height:75px;
 width:100%;
-background-color: gray;
 margin-bottom:20px;
 padding: 10px;
 }
@@ -191,6 +190,10 @@ body.home {
 .shop-images {
 	/*border: 1px solid red;*/
 	max-height: 400px;
+}
+
+.menuslider {
+	width: 50px;
 }
 
 /*yellow: background-color: rgba(255,247,204,1);

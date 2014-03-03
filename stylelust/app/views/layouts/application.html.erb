@@ -57,12 +57,13 @@
         <li><a href="#">About</a></li>
         <li><%= link_to play_path do %>Shop</li>
         <% end %>
+        <li><label>Settings</label></li>
         <li><%= link_to likes_path do %>Favorites</li>
         <% end %>
-        <li><%= link_to settings_path do %>Settings</li>
-        <% end %>
+        <!-- <li><%#= link_to settings_path do %>Settings</li> -->
+        <!-- <#% end %> -->
         <li><a href="#">Invite</a></li>
-        <li><label>Settings</label></li>
+        <li><%#= render partial: 'categorys/shopsettings' %></li>
       </ul>
     </aside>
 
