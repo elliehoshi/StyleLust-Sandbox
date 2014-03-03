@@ -1,10 +1,7 @@
 Stylelust::Application.routes.draw do
 
-  get "phones/index"
-  get "phones/new"
-  get "phones/show"
   get 'items/play' => 'items#play', as: :play
-  # get 'items/play' => 'items#likeClicked', as: :like
+  get 'items/play' => 'items#likeClicked', as: :like
   post 'items/play' => 'items#likeClicked', as: :item_like
   get 'items/play' => 'items#dislikeClicked', as: :dislike
   get 'categorys/settings' => 'categorys#settings', as: :settings
