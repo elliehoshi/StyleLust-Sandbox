@@ -1,5 +1,5 @@
 @import "foundation";
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,100);
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,100|Marvel);
 
 body {
 	text-align: center;
@@ -17,7 +17,7 @@ padding: 10px;
 #b{
 height:250px;
 width:100%;
-background-color: gray;
+background-color: rgba(135,144,145,1);
 margin-bottom: 5%;
 }
 
@@ -36,21 +36,19 @@ margin-bottom: 5%;
 }
 
 .deckcontainer {
-	width: 100%;
-	background-image: url(slidebackground.png);
+	/*border: 1px solid lime;*/
+	width: 600px;
+	height: 550px;
+	margin: 0 auto;
+	background-image: url(productslidedeck2.png);
 	background-repeat: no-repeat;
-	background-position: center; 
+	background-position: center;
+	position: relative;
 }
 
 #itemdeck {
-	padding: 90px;
-	padding-top: 60px;
-}
-
-#accordion2 {
-	width: 200px;
-	height: 50px;
-	margin: 0 auto;
+	padding-top: 90px;
+	overflow: hidden;
 }
 
 label {
@@ -77,6 +75,7 @@ h1 {
 #logo {
 	font-family: 'Raleway', sans-serif;
 	margin-top: 10px;
+	color: rgb(255,77,66);
 }
 
 .banner {
@@ -92,6 +91,12 @@ h1 {
 
 .signup {
 	margin-right: 1%;
+	background-color: rgba(118,200,176,1);
+}
+
+.signin {
+	border: 1px solid rgba(118,200,176,1);
+	background-color: rgba(118,200,176,.2);
 }
 
 .front-icons {
@@ -99,19 +104,21 @@ h1 {
 	width: 100%;
 }
 
-.product {
+.footer {
+	color: white;
+}
+/*.product {
 	width: 400px;
 	height: 400px;
-	/*border: 1px solid black;*/
+	border: 1px solid black;
 	margin: 0 auto;
-	/*padding-top: 3%;*/
-	margin-top: 5%;
 	position: relative;
-	vertical-align: sub;
-}
+}*/
 
 .play {
-	margin-bottom: -3%;
+	margin-top: 3%;
+	font-family: 'Marvel';
+	color: rgb(81,212,173);
 }
 
 .test {
@@ -132,3 +139,60 @@ h1 {
 	overflow: hidden;
 	vertical-align: sub;
 }
+
+body.shop {
+	background-image: url(dark_mosaic.png);
+	background-position: fixed;
+}
+
+body.home {
+	background-color: rgba(60,69,71,1);
+}
+
+.caption {
+	font-family: 'Raleway';
+	color: rgb(130,132,134);
+	font-size: 1.3em;
+}
+
+.lose {
+	background-color: rgb(255,77,66);
+	font-family: 'Marvel';
+}
+
+.lust {
+	background-color: rgb(81,212,173);
+	font-family: 'Marvel';
+}
+
+.buy {
+	background-color: rgba(81,212,173, 0.1);
+	border: 2px rgb(81,212,173) solid;
+	font-family: 'Marvel';
+}
+
+#product-details {
+	width: 482px;
+	height: 100px;
+	/*border: 1px solid red;*/
+	background-color: rgba(0,0,0,.7);
+	margin: 0 auto;
+	overflow: hidden;
+	position: absolute;
+	bottom: 34px;
+	left: 0px;
+	right: 0px;
+	color: white;
+	padding-top: 4%;
+	font-family: 'Marvel';
+	font-size: 1em;
+}
+
+.shop-images {
+	/*border: 1px solid red;*/
+	max-height: 400px;
+}
+
+/*yellow: background-color: rgba(255,247,204,1);
+yellow-gray:background-color: rgba(60,69,71,1);
+*/

@@ -14,7 +14,7 @@ class LikesController < ApplicationController
 			@items = current_user.items
 		else
 			if params[:price].blank?
-				@items = Category.find_by(name: params[:cat]).current_user.items
+				@items = Category.find_by(name: params[:cat]).current_user.likes
 			else
 				@items = Category.find_by(name: params[:cat]).current_user.items.where("price < ?", params[:price].to_f)
 				if @items.length == 0
