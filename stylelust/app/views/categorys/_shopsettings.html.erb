@@ -12,13 +12,18 @@
 
 
 
-<div class="dropdowns">
+<!-- <div class="dropdowns">
   <select id="first_drop">
-    <%= options_for_select([['Tops', 1], ['Bottoms', 2], ['Dresses', 3], ['Outerwear', 4], ['Accessories', 5], ['Shoes', 6]], 1) %>
+    <%#= options_for_select([['Tops', 1], ['Bottoms', 2], ['Dresses', 3], ['Outerwear', 4], ['Accessories', 5], ['Shoes', 6]], 1) %>
   </select>
-</div>
+</div> -->
 
+<select class="fancy-select" id="first_drop">
+  <option value="">Select</option>
+  <%= options_for_select([['Tops', 1], ['Bottoms', 2], ['Dresses', 3], ['Outerwear', 4], ['Accessories', 5], ['Shoes', 6]], 1) %>
+</select>
 
+<br>
 
 <!-- <div class="dropdowns" >
   <select id="second_drop">
@@ -46,6 +51,7 @@
         min: 20,
         max: 500,
         step: 20,
+        animate: true,
         slide: function( event, ui ) {
           $( "#amount" ).val( "$" + ui.value );
           console.log(ui.value);
@@ -64,6 +70,7 @@
       };
 
 // $('#second_drop option:selected').text()
+    $('.fancy-select').fancySelect();
     
   });
 
